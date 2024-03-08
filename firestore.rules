@@ -1,0 +1,15 @@
+rules_version = '2';
+
+service cloud.firestore {
+   match /databases/{database}/documents {
+      // Dentro de la colección de posts
+      match /posts/{postId} {
+         // Cualquier persona puede leer
+         allow read: if true;
+         // Solo las personas que tengan un id igual al definido en el documento pueden editar o eliminar
+         allow update, delete: if request.auth.uid == resource.data.userId;
+         // Solo las personas que tengan un id igual al que se envía en el request pueden crear
+         allow create: if request.auth.uid == request.resource.data.userId;
+      }
+   }
+}

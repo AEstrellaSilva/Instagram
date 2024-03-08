@@ -1,7 +1,6 @@
 <script setup>
 import { ref } from 'firebase/storage';
 
-props('post')
 const emits = defineEmits(['changePage']);
 const post = ref('posts');
 </script>

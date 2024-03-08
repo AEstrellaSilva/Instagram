@@ -39,8 +39,8 @@ onMounted(() => {getPosts});
             <p>Crear Publicación</p>
             <img src="https://th.bing.com/th/id/R.e3956e57360db26f1bfb076dc8c6b993?rik=nnqKo%2fU0PIULJQ&riu=http%3a%2f%2fcdn.onlinewebfonts.com%2fsvg%2fimg_194863.png&ehk=rBnNrjucmayGnMHH13LzpLSRgf09IrhS3tDD49erb6U%3d&risl=&pid=ImgRaw&r=0" alt="">
         </button>
-        <Post @click="selectedPostId = post.id" v-for="post in posts" :post="post"/>
-    <DetailsPage v-if="selectedPostId !== undefined"/>
+        <Post @click="emits('changePage', 'details-page')"/>
+ 
     </div>
 </template>
 
